@@ -1,0 +1,73 @@
+{
+  "root": true,
+  "extends": ["@react-native-community", "prettier"],
+  "plugins": ["jest", "react", "react-hooks", "import"],
+  "env": {
+    "jest/globals": true
+  },
+  "overrides": [
+    {
+      "files": ["*/store/slices/*.js"],
+      "rules": {
+        "no-param-reassign": 0
+      }
+    },
+    {
+      "files": ["**/*.test.js"],
+      "plugins": ["jest", "testing-library"],
+      "extends": ["plugin:jest/all", "plugin:testing-library/react"],
+      "rules": {
+        "jest/prefer-lowercase-title": 0,
+        "jest/no-hooks": [
+          "error",
+          {
+            "allow": ["beforeAll", "afterAll", "afterEach"]
+          }
+        ],
+        "jest/prefer-expect-assertions": [
+          "error",
+          { "onlyFunctionsWithAsyncKeyword": true }
+        ],
+        "testing-library/prefer-screen-queries": 0,
+        "testing-library/no-wait-for-multiple-assertions": 1
+      }
+    }
+  ],
+  "rules": {
+    "global-require": 1,
+    "no-param-reassign": [
+      2,
+      { "props": true, "ignorePropertyModificationsForRegex": ["^acc"] }
+    ],
+    "react-hooks/rules-of-hooks": 1,
+    "react-hooks/exhaustive-deps": 0,
+    "react/function-component-definition": [
+      1,
+      { "namedComponents": "function-declaration" }
+    ],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/prefer-default-export": 1,
+    "import/order": [
+      2,
+      {
+        "groups": ["builtin", "external", "internal", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".tsx", ".ts"]
+  }
+}

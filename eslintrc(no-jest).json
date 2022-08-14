@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "extends": ["@react-native-community", "prettier"],
+  "plugins": ["react", "react-hooks", "import"],
+  "overrides": [
+    {
+      "files": ["*/store/slices/*.js"],
+      "rules": {
+        "no-param-reassign": 0
+      }
+    }
+  ],
+  "rules": {
+    "global-require": 1,
+    "no-param-reassign": [
+      2,
+      { "props": true, "ignorePropertyModificationsForRegex": ["^acc"] }
+    ],
+    "react-hooks/rules-of-hooks": 1,
+    "react-hooks/exhaustive-deps": 0,
+    "react/function-component-definition": [
+      1,
+      { "namedComponents": "function-declaration" }
+    ],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/prefer-default-export": 1,
+    "import/order": [
+      2,
+      {
+        "groups": ["builtin", "external", "internal", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}
