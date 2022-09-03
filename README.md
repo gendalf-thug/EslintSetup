@@ -1,4 +1,4 @@
-```js
+```
 yarn add --D eslint prettier @react-native-community/eslint-config eslint-plugin-react eslint-plugin-react-hooks
 ```
 
@@ -8,6 +8,6 @@ replace `*/store/slices/*.js` in `overrides[i].files` with your path for redux s
 
 // jest
 
-```js
+```
 yarn add --D eslint-plugin-jest
 ```
